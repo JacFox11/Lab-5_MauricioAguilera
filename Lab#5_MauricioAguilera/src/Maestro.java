@@ -2,16 +2,16 @@
 import java.util.ArrayList;
 
 
-public class Mestro {
+public class Maestro {
     private String nombre, apellido;
     private double salario;
     private int edad;
     private ArrayList <Clase> clases = new ArrayList();
 
-    public Mestro() {
+    public Maestro() {
     }
 
-    public Mestro(String nombre, String apellido, double salario, int edad) {
+    public Maestro(String nombre, String apellido, double salario, int edad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.salario = salario;

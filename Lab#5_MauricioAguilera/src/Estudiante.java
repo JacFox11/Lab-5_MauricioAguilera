@@ -1,13 +1,13 @@
 
 public class Estudiante {
-    private String nombre, apellido, genero;
-    private int cuenta, edad;
+    private String nombre, apellido, genero, cuenta;
+    private int edad;
     private Carrera carrera;
 
     public Estudiante() {
     }
 
-    public Estudiante(String nombre, String apellido, String genero, int cuenta, int edad, Carrera carrera) {
+    public Estudiante(String nombre, String apellido, String genero, String cuenta, int edad, Carrera carrera) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
@@ -40,11 +40,11 @@ public class Estudiante {
         this.genero = genero;
     }
 
-    public int getCuenta() {
+    public String getCuenta() {
         return cuenta;
     }
 
-    public void setCuenta(int cuenta) {
+    public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
 
@@ -66,7 +66,7 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "Estudiante{" + "nombre=" + nombre + ", apellido=" + apellido + ", cuenta=" + cuenta + '}';
+        return nombre + " " + apellido;
     }
 
     
