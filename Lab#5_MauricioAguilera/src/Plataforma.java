@@ -2,6 +2,8 @@
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -67,6 +69,20 @@ public class Plataforma extends javax.swing.JFrame {
         jl_estudiantes = new javax.swing.JList<>();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
+        popup_estudiante = new javax.swing.JPopupMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jd_maestros = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        tf_nombremaes = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        tf_apellidomaes = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        sp_edadmaes = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        sp_salario = new javax.swing.JSpinner();
+        popup_arbol = new javax.swing.JPopupMenu();
+        ji_modificar = new javax.swing.JMenuItem();
+        ji_eliminar = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -111,8 +127,19 @@ public class Plataforma extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Carreras");
         jt_estudiantes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_estudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_estudiantesMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jt_estudiantes);
 
+        jl_estudiantes.setModel(new DefaultListModel());
+        jl_estudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_estudiantesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jl_estudiantes);
 
         javax.swing.GroupLayout jd_estudianteLayout = new javax.swing.GroupLayout(jd_estudiante.getContentPane());
@@ -209,6 +236,80 @@ public class Plataforma extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jMenuItem4.setText("Agregar al arbol");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        popup_estudiante.add(jMenuItem4);
+
+        jLabel6.setText("Nombre");
+
+        jLabel8.setText("Apellido");
+
+        jLabel9.setText("Edad");
+
+        jLabel10.setText("Salario");
+
+        javax.swing.GroupLayout jd_maestrosLayout = new javax.swing.GroupLayout(jd_maestros.getContentPane());
+        jd_maestros.getContentPane().setLayout(jd_maestrosLayout);
+        jd_maestrosLayout.setHorizontalGroup(
+            jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_maestrosLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jd_maestrosLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sp_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_maestrosLayout.createSequentialGroup()
+                        .addGroup(jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(23, 23, 23)
+                        .addGroup(jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_nombremaes)
+                            .addComponent(tf_apellidomaes)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_maestrosLayout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(sp_edadmaes, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(468, Short.MAX_VALUE))
+        );
+        jd_maestrosLayout.setVerticalGroup(
+            jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_maestrosLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_nombremaes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_apellidomaes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(24, 24, 24)
+                .addGroup(jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(sp_salario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jd_maestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(sp_edadmaes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(299, Short.MAX_VALUE))
+        );
+
+        ji_modificar.setText("Modificar");
+        popup_arbol.add(ji_modificar);
+
+        ji_eliminar.setText("Eliminar");
+        ji_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ji_eliminarActionPerformed(evt);
+            }
+        });
+        popup_arbol.add(ji_eliminar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Tipos");
@@ -268,7 +369,6 @@ public class Plataforma extends javax.swing.JFrame {
         // TODO add your handling code here:
         jd_estudiante.setModal(true);
         jd_estudiante.pack();
-        jd_estudiante.setLocationRelativeTo(this);
         jd_estudiante.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -290,13 +390,12 @@ public class Plataforma extends javax.swing.JFrame {
             for (int i = 0; i < 14; i++) {
                 for (int j = 0; j < carreras.size(); j++) {
                     if ((String)cb_carreras.getSelectedItem() == carreras.get(j).getNombre()){
-                        carrera = carreras.get(i);
+                        carrera = carreras.get(j);
                     }
                 }
             }
             DefaultListModel modelo = (DefaultListModel) jl_estudiantes.getModel();
             modelo.addElement(new Estudiante(nombre, apellido, sexo, cuenta, edad, carrera));
-            jl_estudiantes.setModel(modelo);
             jl_estudiantes.setModel(modelo);
             tf_nombreestu.setText("");
             tf_apellidoestu.setText("");
@@ -308,6 +407,73 @@ public class Plataforma extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jd_estudiante, "No se pudo agregar el nuevo alumno ya que uno de los valores es invalido");
         }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jl_estudiantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_estudiantesMouseClicked
+        // TODO add your handling code here:
+        if (jl_estudiantes.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                popup_estudiante.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+
+            }
+        }
+    }//GEN-LAST:event_jl_estudiantesMouseClicked
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_estudiantes.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+        DefaultListModel modeloLISTA = (DefaultListModel) jl_estudiantes.getModel();
+        Estudiante estudiante = (Estudiante) modeloLISTA.get(jl_estudiantes.getSelectedIndex());
+        int c = -1;
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            if (raiz.getChildAt(i).toString(). equals(estudiante.getCarrera().getNombre())) {
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(estudiante);
+                ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                c = 1;
+            } //fin if
+        } //fin for
+        if (c == -1) {
+            DefaultMutableTreeNode n
+                    = new DefaultMutableTreeNode(estudiante.getCarrera().getNombre());
+            DefaultMutableTreeNode p
+                    = new DefaultMutableTreeNode(estudiante);
+            n.add(p);
+            raiz.add(n);
+        }  // fin if   
+        modeloARBOL.reload();
+
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jt_estudiantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_estudiantesMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            //seleccionar un nodo con click derecho
+            int row = jt_estudiantes.getClosestRowForLocation(
+                    evt.getX(), evt.getY());
+            jt_estudiantes.setSelectionRow(row);
+            Object v1
+                    = jt_estudiantes.getSelectionPath().
+                    getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Estudiante) {
+                estudiante_seleccionada
+                        = (Estudiante) nodo_seleccionado.
+                        getUserObject();
+                popup_arbol.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+            
+
+        }
+    }//GEN-LAST:event_jt_estudiantesMouseClicked
+
+    private void ji_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ji_eliminarActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel m = (DefaultTreeModel) jt_estudiantes.getModel();
+            m.removeNodeFromParent(nodo_seleccionado);
+            m.reload();
+    }//GEN-LAST:event_ji_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -350,29 +516,45 @@ public class Plataforma extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField ff_cuenta;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JDialog jd_estudiante;
+    private javax.swing.JDialog jd_maestros;
+    private javax.swing.JMenuItem ji_eliminar;
+    private javax.swing.JMenuItem ji_modificar;
     private javax.swing.JList<String> jl_estudiantes;
     private javax.swing.JTree jt_estudiantes;
+    private javax.swing.JPopupMenu popup_arbol;
+    private javax.swing.JPopupMenu popup_estudiante;
     private javax.swing.JRadioButton rb_f;
     private javax.swing.JRadioButton rb_m;
     private javax.swing.JSpinner sp_edadestu;
+    private javax.swing.JSpinner sp_edadmaes;
+    private javax.swing.JSpinner sp_salario;
     private javax.swing.JTextField tf_apellidoestu;
+    private javax.swing.JTextField tf_apellidomaes;
     private javax.swing.JTextField tf_nombreestu;
+    private javax.swing.JTextField tf_nombremaes;
     // End of variables declaration//GEN-END:variables
 
 ArrayList <Maestro> maestros = new ArrayList();
 ArrayList <Clase> clases = new ArrayList();
+DefaultMutableTreeNode nodo_seleccionado;
+Estudiante estudiante_seleccionada;
 }
